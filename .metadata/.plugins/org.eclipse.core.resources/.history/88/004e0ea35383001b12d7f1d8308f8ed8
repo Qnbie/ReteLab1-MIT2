@@ -19,10 +19,17 @@ public class RunStatechart {
 		RuntimeService.getInstance().registerStatemachine(s, 200);
 		s.init();
 		s.enter();
+		/*s.runCycle();
+		print(s);
+		s.raiseStart();
+		s.runCycle();
+		System.in.read();
+		s.raiseWhite();
+		s.runCycle();
+		print(s);*/
 		String command = "";
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-		boolean run = true;
-		while(run) {
+		while(command != "exit") {
 			command = reader.readLine();
 			switch(command) {
 				case "start":
@@ -41,8 +48,6 @@ public class RunStatechart {
 					print(s);
 					break;
 				case "exit":
-					run = false;
-					print(s);
 					break;
 				default:
 					System.out.println("Please give a valid command");
